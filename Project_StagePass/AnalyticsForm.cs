@@ -52,9 +52,10 @@ namespace Project_StagePass
                 lbltotaltixsold.Text = AnalyticsRecord.CountTotalTickets(allCustomers).ToString();
 
                 // Avg Order Price
-                lblavgorderprice.Text = (AnalyticsRecord.CalculateTotalRevenue(allCustomers) / allCustomers.Count).ToString("C");
+                decimal totalRevenue = AnalyticsRecord.CalculateTotalRevenue(allCustomers);
+                int totalTickets = AnalyticsRecord.CountTotalTickets(allCustomers);
+                lblavgorderprice.Text = (totalRevenue / totalTickets).ToString("C");
 
-               
 
                 // Empty Orders
                 int emptyCount = AnalyticsRecord.GetEmptyOrders(allCustomers).Count;
