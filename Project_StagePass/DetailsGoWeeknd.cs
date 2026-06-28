@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO; // WAJIB ADA NI
 using System.Windows.Forms;
 
 namespace Project_StagePass
@@ -19,10 +20,10 @@ namespace Project_StagePass
 
         private void DetailsGoWeeknd_Load(object sender, EventArgs e)
         {
-            // 1. Tarik nama dan tarikh
+            // Tarik SEMUA data termasuk PosterImage dari database
             using (SqlConnection con = new SqlConnection(connString))
             {
-                string query = "SELECT ArtistName, TourName, ConcertDate FROM Concerts WHERE ConcertId = @id";
+                string query = "SELECT ArtistName, TourName, ConcertDate, PosterImage FROM Concerts WHERE ConcertId = @id";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@id", currentConcertId);
 
@@ -35,37 +36,30 @@ namespace Project_StagePass
                         currentConcertName = reader["TourName"].ToString();
                         lblArtist.Text = reader["ArtistName"].ToString();
                         lblTour.Text = currentConcertName;
+
                         if (reader["ConcertDate"] != DBNull.Value)
                         {
                             lblDate.Text = Convert.ToDateTime(reader["ConcertDate"]).ToString("d MMMM yyyy");
                         }
+
+                        // MODIFIED: Tarik gambar terus dari database
+                        if (reader["PosterImage"] != DBNull.Value)
+                        {
+                            byte[] imgData = (byte[])reader["PosterImage"];
+                            using (MemoryStream ms = new MemoryStream(imgData))
+                            {
+                                pbPoster.Image = Image.FromStream(ms);
+                            }
+                        }
+
+                        // Text about kita boleh set default
+                        lblAbout.Text = "Experience the magic of " + reader["ArtistName"] + " live on stage!";
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
-            }
-
-            // 2. MODIFIED: Masukkan Gambar dari Resources
-            // Pastikan pbPoster set SizeMode = StretchImage kat properties!
-            switch (currentConcertId)
-            {
-                case "CON01":
-                    pbPoster.Image = Properties.Resources.laufey;
-                    lblAbout.Text = "Laufey brings her bewitching jazz-pop melodies to the stage...";
-                    break;
-                case "CON02":
-                    pbPoster.Image = Properties.Resources.bts1;
-                    lblAbout.Text = "Global pop icons BTS return to the stage with their record-breaking tour...";
-                    break;
-                case "CON03":
-                    pbPoster.Image = Properties.Resources.the_weeknd1;
-                    lblAbout.Text = "The Weeknd is a multi-platinum, 7x Diamond-certified artist who reshaped R&B...";
-                    break;
-                default:
-                    lblAbout.Text = "Details will be updated soon.";
-                    break;
             }
         }
 
@@ -80,6 +74,7 @@ namespace Project_StagePass
 
         private void buttonBack_Click(object sender, EventArgs e) => this.Close();
 
+        // (Fungsi ProcessBooking kekal sama seperti asal)
         private void ProcessBooking(string concertId, string packageId, decimal totalAmount, string seat, string zone)
         {
             using (SqlConnection con = new SqlConnection(connString))
@@ -97,20 +92,21 @@ namespace Project_StagePass
                             customerId = Convert.ToInt32(cmd.ExecuteScalar());
                         }
 
-                        string insertBooking = @"INSERT INTO Bookings (CustomerId, ConcertId, TotalAmount, BookingDate, PaymentStatus) VALUES (@CustId, @ConcertId, @Amount, @Date, 'Paid');";
+                        string insertBooking = @"INSERT INTO Bookings (CustomerId, ConcertId, TotalAmount, BookingDate, PaymentStatus) VALUES (@CustId, @ConcertId, @Amount, @Date, 'Paid'); SELECT SCOPE_IDENTITY();";
+                        int bookingId;
                         using (SqlCommand cmd = new SqlCommand(insertBooking, con, trans))
                         {
                             cmd.Parameters.AddWithValue("@CustId", customerId);
                             cmd.Parameters.AddWithValue("@ConcertId", concertId);
                             cmd.Parameters.AddWithValue("@Amount", totalAmount);
                             cmd.Parameters.AddWithValue("@Date", DateTime.Now);
-                            cmd.ExecuteNonQuery();
+                            bookingId = Convert.ToInt32(cmd.ExecuteScalar());
                         }
 
                         string insertTicket = @"INSERT INTO Tickets (BookingId, PackageId, SeatNumber, Zone) VALUES (@BookingId, @PackId, @Seat, @Zone)";
                         using (SqlCommand cmd = new SqlCommand(insertTicket, con, trans))
                         {
-                            cmd.Parameters.AddWithValue("@BookingId", customerId); // Assume bookingId logic here matches your table
+                            cmd.Parameters.AddWithValue("@BookingId", bookingId);
                             cmd.Parameters.AddWithValue("@PackId", packageId);
                             cmd.Parameters.AddWithValue("@Seat", seat);
                             cmd.Parameters.AddWithValue("@Zone", zone);
