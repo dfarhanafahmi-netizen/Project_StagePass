@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBox1.Text" xml:space="preserve">
+  <data name="lblAbout.Text" xml:space="preserve">
     <value>The Weeknd is a multi-platinum. 7x Diamond-certifies artist who reshaped R&amp;B and pop, making him one of the one most listened to one of the most compelling and significant artists of the 21st century with over 115 million monthly Spotify listeners and the first artist to have 31 songs each with over a billion streams.
 
 </value>
