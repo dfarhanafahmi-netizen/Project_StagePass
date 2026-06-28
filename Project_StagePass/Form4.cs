@@ -107,6 +107,12 @@ namespace Project_StagePass
 
             this.Close();
 
-        }   
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            TermsNCondition termsNCondition = new TermsNCondition();
+            termsNCondition.Show();
+        }
     }
 }
