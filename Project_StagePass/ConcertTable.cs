@@ -53,7 +53,12 @@ namespace Project_StagePass
                 // Tukar gambar jadi format Byte (supaya boleh sumbat masuk database)
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    pbPosterUpload.Image.Save(ms, pbPosterUpload.Image.RawFormat);
+                    // Resize gambar kepada lebar 300px (tinggi akan ikut ratio)
+                    int maxWidth = 300;
+                    int height = (int)(pbPosterUpload.Image.Height * ((float)maxWidth / pbPosterUpload.Image.Width));
+
+                    Bitmap resizedImage = new Bitmap(pbPosterUpload.Image, new Size(maxWidth, height));
+                    resizedImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Save as Jpeg (lebih ringan)
                     imageBytes = ms.ToArray();
                 }
             }

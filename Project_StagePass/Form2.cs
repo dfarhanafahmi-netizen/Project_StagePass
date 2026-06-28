@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO; // WAJIB ADA NI
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,8 @@ namespace Project_StagePass
 
             using (SqlConnection con = new SqlConnection(connString))
             {
-                string query = "SELECT ConcertId, ArtistName, TourName, ConcertDate FROM Concerts";
+                // Tarik PosterImage sekali
+                string query = "SELECT ConcertId, ArtistName, TourName, ConcertDate, PosterImage FROM Concerts";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 try
@@ -52,11 +54,9 @@ namespace Project_StagePass
                         string artistName = reader["ArtistName"].ToString();
                         string tourName = reader["TourName"].ToString();
 
-                        string dateStr = "";
-                        if (reader["ConcertDate"] != DBNull.Value)
-                        {
-                            dateStr = Convert.ToDateTime(reader["ConcertDate"]).ToString("d MMM yyyy");
-                        }
+                        string dateStr = reader["ConcertDate"] != DBNull.Value
+                            ? Convert.ToDateTime(reader["ConcertDate"]).ToString("d MMM yyyy")
+                            : "";
 
                         GroupBox card = new GroupBox();
                         card.Text = $"  {artistName}  ";
@@ -71,11 +71,15 @@ namespace Project_StagePass
                         pb.SizeMode = PictureBoxSizeMode.StretchImage;
                         pb.BorderStyle = BorderStyle.FixedSingle;
 
-                        // --- KOD GAMBAR YANG AWAK MINTA ---
-                        if (concertId == "CON01") pb.Image = Properties.Resources.laufey;
-                        else if (concertId == "CON02") pb.Image = Properties.Resources.bts1;
-                        else if (concertId == "CON03") pb.Image = Properties.Resources.the_weeknd1;
-
+                        // LOGIK GAMBAR DARI DATABASE
+                        if (reader["PosterImage"] != DBNull.Value)
+                        {
+                            byte[] imgData = (byte[])reader["PosterImage"];
+                            using (MemoryStream ms = new MemoryStream(imgData))
+                            {
+                                pb.Image = Image.FromStream(ms);
+                            }
+                        }
                         card.Controls.Add(pb);
 
                         Label lblTour = new Label();
@@ -83,15 +87,12 @@ namespace Project_StagePass
                         lblTour.ForeColor = Color.Khaki;
                         lblTour.Location = new Point(15, 175);
                         lblTour.Size = new Size(190, 40);
-                        lblTour.Font = new Font("Segoe UI", 10, FontStyle.Regular);
                         card.Controls.Add(lblTour);
 
                         Label lblDate = new Label();
                         lblDate.Text = dateStr;
                         lblDate.ForeColor = Color.LightGray;
                         lblDate.Location = new Point(15, 225);
-                        lblDate.Size = new Size(190, 25);
-                        lblDate.Font = new Font("Segoe UI", 9, FontStyle.Regular);
                         card.Controls.Add(lblDate);
 
                         Button btnGo = new Button();
@@ -100,7 +101,6 @@ namespace Project_StagePass
                         btnGo.BackColor = Color.LightGray;
                         btnGo.Size = new Size(90, 30);
                         btnGo.Location = new Point(65, 300);
-                        btnGo.FlatStyle = FlatStyle.Flat;
                         btnGo.Tag = concertId;
                         btnGo.Click += BtnGo_Click;
                         card.Controls.Add(btnGo);
@@ -121,8 +121,7 @@ namespace Project_StagePass
             Button clickedButton = sender as Button;
             if (clickedButton != null)
             {
-                string targetConcertId = clickedButton.Tag.ToString();
-                DetailsGoWeeknd detailsForm = new DetailsGoWeeknd(targetConcertId);
+                DetailsGoWeeknd detailsForm = new DetailsGoWeeknd(clickedButton.Tag.ToString());
                 detailsForm.ShowDialog();
             }
         }
