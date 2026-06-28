@@ -87,7 +87,7 @@ namespace Project_StagePass
                 this.subTotal = parsedPrice;
             }
 
-            MessageBox.Show("You selected: " + method + "\nTotal: " + TotalPriceToDisplay);
+            MessageBox.Show("You selected: " + method + "\nTotal (without tax): " + TotalPriceToDisplay);
         
 
             receipt form3 = new receipt (eventName,CustomerName, method, this.subTotal,this.TicketCount);

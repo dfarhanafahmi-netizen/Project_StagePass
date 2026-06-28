@@ -28,59 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvBookings = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtbxbookingid = new System.Windows.Forms.TextBox();
-            this.txtbxconcertid = new System.Windows.Forms.TextBox();
-            this.txtbxcustid = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.txtbxtotalamount = new System.Windows.Forms.TextBox();
             this.txtbxpaymentstatus = new System.Windows.Forms.TextBox();
             this.txtbxbookingdate = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.txtbxcustid = new System.Windows.Forms.TextBox();
+            this.txtbxconcertid = new System.Windows.Forms.TextBox();
+            this.txtbxbookingid = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvBookings
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBookings.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBookings.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBookings.Location = new System.Drawing.Point(37, 36);
             this.dgvBookings.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBookings.Name = "dgvBookings";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBookings.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBookings.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBookings.RowHeadersWidth = 51;
             this.dgvBookings.RowTemplate.Height = 24;
             this.dgvBookings.Size = new System.Drawing.Size(867, 222);
@@ -113,93 +113,16 @@
             this.groupBox1.Text = "Booking Ticket Summary";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label1
+            // btnDelete
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(59, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 32);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Admin Management";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 275);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Booking ID";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 300);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 16);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Customer ID";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 325);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 16);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Concert ID";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(355, 275);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 16);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Booking Date";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(355, 300);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 16);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Total Amount";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(355, 325);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 16);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Payment Status";
-            // 
-            // txtbxbookingid
-            // 
-            this.txtbxbookingid.Location = new System.Drawing.Point(163, 269);
-            this.txtbxbookingid.Name = "txtbxbookingid";
-            this.txtbxbookingid.Size = new System.Drawing.Size(100, 22);
-            this.txtbxbookingid.TabIndex = 29;
-            this.txtbxbookingid.TextChanged += new System.EventHandler(this.txtbxbookingid_TextChanged);
-            // 
-            // txtbxconcertid
-            // 
-            this.txtbxconcertid.Location = new System.Drawing.Point(163, 325);
-            this.txtbxconcertid.Name = "txtbxconcertid";
-            this.txtbxconcertid.Size = new System.Drawing.Size(100, 22);
-            this.txtbxconcertid.TabIndex = 30;
-            this.txtbxconcertid.TextChanged += new System.EventHandler(this.txtbxconcertid_TextChanged);
-            // 
-            // txtbxcustid
-            // 
-            this.txtbxcustid.Location = new System.Drawing.Point(163, 297);
-            this.txtbxcustid.Name = "txtbxcustid";
-            this.txtbxcustid.Size = new System.Drawing.Size(100, 22);
-            this.txtbxcustid.TabIndex = 31;
-            this.txtbxcustid.TextChanged += new System.EventHandler(this.txtbxcustid_TextChanged);
+            this.btnDelete.BackColor = System.Drawing.Color.Red;
+            this.btnDelete.Location = new System.Drawing.Point(812, 269);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(92, 33);
+            this.btnDelete.TabIndex = 35;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtbxtotalamount
             // 
@@ -225,15 +148,93 @@
             this.txtbxbookingdate.TabIndex = 32;
             this.txtbxbookingdate.TextChanged += new System.EventHandler(this.txtbxbookingdate_TextChanged);
             // 
-            // btnDelete
+            // txtbxcustid
             // 
-            this.btnDelete.Location = new System.Drawing.Point(812, 269);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(92, 33);
-            this.btnDelete.TabIndex = 35;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.txtbxcustid.Location = new System.Drawing.Point(163, 297);
+            this.txtbxcustid.Name = "txtbxcustid";
+            this.txtbxcustid.Size = new System.Drawing.Size(100, 22);
+            this.txtbxcustid.TabIndex = 31;
+            this.txtbxcustid.TextChanged += new System.EventHandler(this.txtbxcustid_TextChanged);
+            // 
+            // txtbxconcertid
+            // 
+            this.txtbxconcertid.Location = new System.Drawing.Point(163, 325);
+            this.txtbxconcertid.Name = "txtbxconcertid";
+            this.txtbxconcertid.Size = new System.Drawing.Size(100, 22);
+            this.txtbxconcertid.TabIndex = 30;
+            this.txtbxconcertid.TextChanged += new System.EventHandler(this.txtbxconcertid_TextChanged);
+            // 
+            // txtbxbookingid
+            // 
+            this.txtbxbookingid.Location = new System.Drawing.Point(163, 269);
+            this.txtbxbookingid.Name = "txtbxbookingid";
+            this.txtbxbookingid.Size = new System.Drawing.Size(100, 22);
+            this.txtbxbookingid.TabIndex = 29;
+            this.txtbxbookingid.TextChanged += new System.EventHandler(this.txtbxbookingid_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(355, 325);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 16);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Payment Status";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(355, 300);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 16);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Total Amount";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(355, 275);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 16);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Booking Date";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(59, 325);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 16);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Concert ID";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(59, 300);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 16);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Customer ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(59, 275);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Booking ID";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(59, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(232, 32);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Admin Management";
             // 
             // BookingTicketTable
             // 
